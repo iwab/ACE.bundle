@@ -48,8 +48,20 @@
         "default":  true
     },
     {
-        "id":       "show_reddit_soccer",
-        "label":    "Load reddit soccer links",
+        "id":       "show_reddit_soccer_world",
+        "label":    "Load reddit soccer world links",
+        "type":     "bool",
+        "default":  true
+    }
+    {
+        "id":       "show_reddit_soccer_epl",
+        "label":    "Load reddit soccer PL links",
+        "type":     "bool",
+        "default":  true
+    }
+    {
+        "id":       "show_reddit_Cricket",
+        "label":    "Load reddit Cricket links",
         "type":     "bool",
         "default":  true
     }

@@ -53,13 +53,27 @@ def MainMenu():
         title = 'Reddit/MotorSports'
       )
     )
-  if (Prefs['show_reddit_soccer']):
+  if (Prefs['show_reddit_soccer_world']):
     oc.add(
       DirectoryObject(
-        key = Callback(RedditSoccerList, title = 'Reddit/Soccer'),
-        title = 'Reddit/Soccer'
+        key = Callback(RedditSoccerList1, title = 'Reddit/Soccer_World'),
+        title = 'Reddit/Soccer_World'
       )
     )
+if (Prefs['show_reddit_soccer_epl']):
+  oc.add(
+    DirectoryObject(
+      key = Callback(RedditSoccerList2, title = 'Reddit/Soccer_EPL'),
+      title = 'Reddit/Soccer_EPL'
+    )
+  )
+if (Prefs['show_reddit_Cricket']):
+  oc.add(
+    DirectoryObject(
+      key = Callback(RedditCricketList, title = 'Reddit/Cricket'),
+      title = 'Reddit/Cricket'
+    )
+  )
   return oc
 
 
@@ -218,12 +232,23 @@ def RedditMotorSportsList(title):
   getRedditLinks(oc, 'https://www.reddit.com/r/motorsportsstreams.json', ' utc')
   return oc
 
-@route('/video/ace/redditsoccerlist')
-def RedditSoccerList(title):
+@route('/video/ace/redditsoccerlist1')
+def RedditSoccerList1(title):
   oc = ObjectContainer(title2 = title)
   getRedditLinks(oc, 'https://www.reddit.com/r/soccerstreams_other.json', ' vs')
   return oc
 
+@route('/video/ace/redditsoccerlist2')
+def RedditSoccerList2(title):
+  oc = ObjectContainer(title2 = title)
+  getRedditLinks(oc, 'https://www.reddit.com/r/soccerstreams_pl.json', ' vs')
+  return oc
+
+ @route('/video/ace/RedditCricketList')
+ def RedditCricketList(title):
+   oc = ObjectContainer(title2 = title)
+   getRedditLinks(oc, 'https://www.reddit.com/r/cricketstreams.json', ' vs')
+   return oc
 
 
 @route('/video/ace/show', include_container = bool)
